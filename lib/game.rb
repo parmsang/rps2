@@ -19,18 +19,10 @@ class Game
 }
 
   def computer_hand
-    [0,1,2].sample
+    [:rock,:paper,:scissors].sample
   end
 
-  def who_wins(player_hand)
-    if computer_hand == 0
-      computer = :rock
-    elsif computer_hand == 1
-      computer = :paper
-    else
-      computer = :scissors
-    end
-
-    GAME_RULES[player_hand][computer]
+  def who_wins(player, computer)
+    GAME_RULES[player][computer]
   end
 end

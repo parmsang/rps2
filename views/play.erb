@@ -1,6 +1,5 @@
 <div>Rock Paper Scissors</div>
 
-
 <form action="/play" method="post">
   <select name="choices">
     <option value="rock">rock</option>
@@ -14,11 +13,20 @@
 <div>You have chosen <%= @choice %></div>
 <% end %>
 <% if @computer %>
-  <% if @computer == 0 %>
+  <% if @computer == :rock %>
   <div>Computer has chosen rock</div>
-  <% elsif @computer == 1 %>
+  <% elsif @computer == :paper %>
   <div>Computer has chosen paper</div>
   <% else %>
   <div>Computer has chosen scissors</div>
+  <% end %>
+<% end %>
+<% if @choice %>
+  <% if @result == :win %>
+  <div>you win</div>
+  <% elsif @result == :lose %>
+  <div>you lose</div>
+  <% else %>
+  <div>you tie</div>
   <% end %>
 <% end %>

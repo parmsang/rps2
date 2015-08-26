@@ -1,11 +1,12 @@
 require 'sinatra/base'
+require_relative 'game'
 
 class RPS < Sinatra::Base
   configure :development do
     set :bind, '0.0.0.0'
     set :port, 3000
   end
-  
+
   set :views, proc { File.join(root, '..', 'views') }
 
   get '/' do
@@ -22,8 +23,10 @@ class RPS < Sinatra::Base
   end
 
   post '/play' do
+    $game = Game.new
     @choice = params[:choices]
-    @computer = rand(2)
+    @computer = $game.computer_hand
+    @result = $game.who_wins(@choice.to_sym, @computer)
     erb :play
   end
 

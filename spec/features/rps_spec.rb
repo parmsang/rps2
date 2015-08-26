@@ -35,10 +35,11 @@ feature 'Starting a new game' do
     click_button 'Submit'
     expect(page).to have_content "You have chosen scissors"
   end
-#  scenario 'Computer can pick a random option' do
-#    visit '/play'
-#    click_button 'Submit'
-#    expect(@computer).to be_between(-5, 10)
-#    expect(page).to have_content "Computer has chosen rock"
-#  end
+  scenario 'I can play against computer and see if i have won, lost or tied' do
+    visit '/play'
+    select 'rock', :from => 'choices'
+    click_button 'Submit'
+    result2 = @result.to_s
+    expect(page).to have_content "you #{result2}"
+  end
 end
