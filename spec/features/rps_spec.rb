@@ -8,4 +8,17 @@ feature 'Starting a new game' do
     click_button 'Submit'
     expect(page).to have_content "Hello, #{name}"
   end
+  scenario 'I can play a game' do
+    visit '/'
+    name = 'Winnie'
+    fill_in 'name', with: name
+    click_button 'Submit'
+    expect(page).to have_content "Choose Game Type"
+    click_link 'One Player Game'
+    expect(page).to have_content "Rock Paper Scissors"
+  end
+  scenario 'I can choose a move' do
+    visit '/play'
+    
+  end
 end

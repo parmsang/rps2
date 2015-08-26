@@ -8,8 +8,12 @@ class RPS < Sinatra::Base
     erb :index
   end
 
-  get '/play_game' do
+  post '/' do
     @name = params[:name]
+    erb :index
+  end
+
+  get '/play' do
     erb :play
   end
 
