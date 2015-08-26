@@ -13,3 +13,12 @@
 <% if @choice %>
 <div>You have chosen <%= @choice %></div>
 <% end %>
+<% if @computer %>
+  <% if @computer == 0 %>
+  <div>Computer has chosen rock</div>
+  <% elsif @computer == 1 %>
+  <div>Computer has chosen paper</div>
+  <% else %>
+  <div>Computer has chosen scissors</div>
+  <% end %>
+<% end %>

@@ -1,7 +1,10 @@
 require 'sinatra/base'
 
 class RPS < Sinatra::Base
-
+  configure :development do
+    set :bind, '0.0.0.0'
+    set :port, 3000
+  end
   set :views, proc { File.join(root, '..', 'views') }
 
   get '/' do
@@ -19,6 +22,7 @@ class RPS < Sinatra::Base
 
   post '/play' do
     @choice = params[:choices]
+    @computer = rand(2)
     erb :play
   end
 

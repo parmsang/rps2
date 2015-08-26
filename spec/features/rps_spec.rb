@@ -17,10 +17,28 @@ feature 'Starting a new game' do
     click_link 'One Player Game'
     expect(page).to have_content "Rock Paper Scissors"
   end
-  scenario 'I can choose a move' do
+  scenario 'I can choose rock' do
     visit '/play'
     select 'rock', :from => 'choices'
     click_button 'Submit'
     expect(page).to have_content "You have chosen rock"
   end
+  scenario 'I can choose paper' do
+    visit '/play'
+    select 'paper', :from => 'choices'
+    click_button 'Submit'
+    expect(page).to have_content "You have chosen paper"
+  end
+  scenario 'I can choose scissors' do
+    visit '/play'
+    select 'scissors', :from => 'choices'
+    click_button 'Submit'
+    expect(page).to have_content "You have chosen scissors"
+  end
+#  scenario 'Computer can pick a random option' do
+#    visit '/play'
+#    click_button 'Submit'
+#    expect(@computer).to be_between(-5, 10)
+#    expect(page).to have_content "Computer has chosen rock"
+#  end
 end
