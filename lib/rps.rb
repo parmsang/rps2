@@ -5,6 +5,7 @@ class RPS < Sinatra::Base
     set :bind, '0.0.0.0'
     set :port, 3000
   end
+  
   set :views, proc { File.join(root, '..', 'views') }
 
   get '/' do
