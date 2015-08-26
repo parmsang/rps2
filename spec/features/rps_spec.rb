@@ -19,6 +19,8 @@ feature 'Starting a new game' do
   end
   scenario 'I can choose a move' do
     visit '/play'
-    
+    select 'rock', :from => 'choices'
+    click_button 'Submit'
+    expect(page).to have_content "You have chosen rock"
   end
 end

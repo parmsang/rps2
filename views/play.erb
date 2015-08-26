@@ -1,1 +1,15 @@
-Rock Paper Scissors
+<div>Rock Paper Scissors</div>
+
+
+<form action="/play" method="post">
+  <select name="choices">
+    <option value="rock">rock</option>
+    <option value="paper">paper</option>
+    <option value="scissors">scissors</option>
+  </select>
+  <input type="submit" value="Submit">
+</form>
+
+<% if @choice %>
+<div>You have chosen <%= @choice %></div>
+<% end %>
